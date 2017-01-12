@@ -13,6 +13,14 @@
 		858C66201E25F79D00454FAB /* MusicPlay.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 858C661E1E25F79D00454FAB /* MusicPlay.xcdatamodeld */; };
 		858C66221E25F79D00454FAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 858C66211E25F79D00454FAB /* Assets.xcassets */; };
 		858C66251E25F79D00454FAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 858C66231E25F79D00454FAB /* LaunchScreen.storyboard */; };
+		858C662D1E25F85F00454FAB /* MusicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 858C662C1E25F85F00454FAB /* MusicCell.xib */; };
+		858C66311E25F8A100454FAB /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C66301E25F8A100454FAB /* MusicCell.swift */; };
+		858C66331E25FA2500454FAB /* TrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 858C66321E25FA2500454FAB /* TrackCell.xib */; };
+		858C66351E25FA3700454FAB /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C66341E25FA3700454FAB /* TrackCell.swift */; };
+		858C663F1E261DEB00454FAB /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C663E1E261DEB00454FAB /* TestViewController.swift */; };
+		85B0B7E91E266BF0008557DB /* TopTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B0B7E81E266BF0008557DB /* TopTrack.swift */; };
+		85B0B7EB1E266D2B008557DB /* music.json in Resources */ = {isa = PBXBuildFile; fileRef = 85B0B7EA1E266D2B008557DB /* music.json */; };
+		85B0B7ED1E2675D8008557DB /* UIImageView+AFNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B0B7EC1E2675D8008557DB /* UIImageView+AFNetworking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,14 @@
 		858C66211E25F79D00454FAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		858C66241E25F79D00454FAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		858C66261E25F79D00454FAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		858C662C1E25F85F00454FAB /* MusicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicCell.xib; sourceTree = "<group>"; };
+		858C66301E25F8A100454FAB /* MusicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
+		858C66321E25FA2500454FAB /* TrackCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackCell.xib; sourceTree = "<group>"; };
+		858C66341E25FA3700454FAB /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		858C663E1E261DEB00454FAB /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		85B0B7E81E266BF0008557DB /* TopTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTrack.swift; sourceTree = "<group>"; };
+		85B0B7EA1E266D2B008557DB /* music.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = music.json; sourceTree = "<group>"; };
+		85B0B7EC1E2675D8008557DB /* UIImageView+AFNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+AFNetworking.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +72,55 @@
 		858C66161E25F79D00454FAB /* MusicPlay */ = {
 			isa = PBXGroup;
 			children = (
+				85B0B7E71E266BE3008557DB /* Model */,
+				858C662F1E25F87000454FAB /* Supporting Files */,
+				858C662E1E25F86500454FAB /* Cell */,
+				85B0B7E51E266BC8008557DB /* Controllers */,
 				858C66171E25F79D00454FAB /* AppDelegate.swift */,
-				858C66191E25F79D00454FAB /* ViewController.swift */,
 				858C661B1E25F79D00454FAB /* Main.storyboard */,
+			);
+			path = MusicPlay;
+			sourceTree = "<group>";
+		};
+		858C662E1E25F86500454FAB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				858C662C1E25F85F00454FAB /* MusicCell.xib */,
+				858C66301E25F8A100454FAB /* MusicCell.swift */,
+				858C66321E25FA2500454FAB /* TrackCell.xib */,
+				858C66341E25FA3700454FAB /* TrackCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		858C662F1E25F87000454FAB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				85B0B7EA1E266D2B008557DB /* music.json */,
 				858C66211E25F79D00454FAB /* Assets.xcassets */,
 				858C66231E25F79D00454FAB /* LaunchScreen.storyboard */,
 				858C66261E25F79D00454FAB /* Info.plist */,
 				858C661E1E25F79D00454FAB /* MusicPlay.xcdatamodeld */,
 			);
-			path = MusicPlay;
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		85B0B7E51E266BC8008557DB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				85B0B7EC1E2675D8008557DB /* UIImageView+AFNetworking.swift */,
+				858C66191E25F79D00454FAB /* ViewController.swift */,
+				858C663E1E261DEB00454FAB /* TestViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		85B0B7E71E266BE3008557DB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				85B0B7E81E266BF0008557DB /* TopTrack.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,8 +184,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				858C66251E25F79D00454FAB /* LaunchScreen.storyboard in Resources */,
+				85B0B7EB1E266D2B008557DB /* music.json in Resources */,
+				858C66331E25FA2500454FAB /* TrackCell.xib in Resources */,
 				858C66221E25F79D00454FAB /* Assets.xcassets in Resources */,
 				858C661D1E25F79D00454FAB /* Main.storyboard in Resources */,
+				858C662D1E25F85F00454FAB /* MusicCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,9 +199,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85B0B7E91E266BF0008557DB /* TopTrack.swift in Sources */,
+				858C66351E25FA3700454FAB /* TrackCell.swift in Sources */,
 				858C661A1E25F79D00454FAB /* ViewController.swift in Sources */,
 				858C66201E25F79D00454FAB /* MusicPlay.xcdatamodeld in Sources */,
 				858C66181E25F79D00454FAB /* AppDelegate.swift in Sources */,
+				858C663F1E261DEB00454FAB /* TestViewController.swift in Sources */,
+				858C66311E25F8A100454FAB /* MusicCell.swift in Sources */,
+				85B0B7ED1E2675D8008557DB /* UIImageView+AFNetworking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +370,7 @@
 				858C662B1E25F79D00454FAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

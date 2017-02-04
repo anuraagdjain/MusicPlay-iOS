@@ -165,6 +165,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         self.audioPlayer =  AVPlayer(url: musicURL!)
         self.audioPlayer?.play()
+        playPauseButton.setImage(UIImage(named:"pause"), for: .normal)
         myTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateProgressBar), userInfo: nil, repeats: true)
         mTrackImage.setImageWithUrl(url: NSURL(string:track.artWork!)!)
         mTrackName.text = track.trackName!

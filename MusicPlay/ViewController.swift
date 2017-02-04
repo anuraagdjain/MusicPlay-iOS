@@ -20,19 +20,21 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var trackPlayerView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var playerBlur: UIView!
+    @IBOutlet weak var playPauseButton:UIButton!
     
     var topTrack = [TopTrack]()
     var audioPlayer:AVPlayer?
     var myTimer:Timer!
     var sectionHeaders = ["Top Music","Hindi","English","Tamil","Punjabi"]
     var tracks = [Tracks]()
+    var isPlaying = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadInitials()
+        initialSetup()
     }
 
-    func loadInitials(){
+    func initialSetup(){
         customNavbar()
         let nib =  UINib(nibName: "MusicCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "cell")
@@ -197,7 +199,17 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     @IBAction func didTapOnPause(_ sender: Any) {
-    
+        if !isPlaying {
+            isPlaying = true
+            audioPlayer?.play()
+            playPauseButton.setImage(UIImage(named:"pause"), for: .normal)
+            
+        }else{
+            isPlaying = false
+            audioPlayer?.pause()
+            playPauseButton.setImage(UIImage(named:"play"), for: .normal)
+        }
+        
     
     }
     

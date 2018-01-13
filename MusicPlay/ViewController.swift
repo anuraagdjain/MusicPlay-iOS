@@ -82,7 +82,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func customNavbar(){
         self.title = "MusicPlay"
         UIApplication.shared.statusBarStyle = .lightContent
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white,NSFontAttributeName:UIFont(name: "Verdana-Bold", size: 15)!]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white,NSAttributedStringKey.font:UIFont(name: "Verdana-Bold", size: 15)!]
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController?.navigationBar.isTranslucent = false
@@ -172,7 +172,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         mArtistName.text = track.artistName!
     }
     
-    func updateProgressBar(){
+    @objc func updateProgressBar(){
         
             let t1 =  self.audioPlayer?.currentTime()
             let t2 =  self.audioPlayer?.currentItem?.asset.duration

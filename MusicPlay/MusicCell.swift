@@ -80,7 +80,7 @@ class MusicCell: UITableViewCell,UICollectionViewDataSource,UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Coll:\(indexPath) - \(self.indexPath)")
+        print("Coll:\(indexPath) - \(String(describing: self.indexPath))")
         if let _ = delegate{
             delegate?.didTapOnTrack(cell: self, indexPath: indexPath)
         }

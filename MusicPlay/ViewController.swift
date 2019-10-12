@@ -10,7 +10,6 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,MusicCellProtocol,AVAudioPlayerDelegate {
-
     
     @IBOutlet weak var mTrackImage: UIImageView!
     @IBOutlet weak var mTrackName: UILabel!
@@ -23,8 +22,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var playPauseButton:UIButton!
     
     var topTrack = [TopTrack]()
-    var audioPlayer:AVPlayer?
-    var myTimer:Timer!
+    var audioPlayer: AVPlayer?
+    var myTimer: Timer!
     var sectionHeaders = ["Top Music","Hindi","English","Tamil","Punjabi"]
     var tracks = [Tracks]()
     var isPlaying = true
@@ -33,15 +32,17 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         super.viewDidLoad()
         initialSetup()
     }
-
-    func initialSetup(){
+    
+    func initialSetup() {
         customNavbar()
         let nib =  UINib(nibName: "MusicCell", bundle: nil)
+        if #available(iOS 10.0, *) {
+            audioPlayer?.automaticallyWaitsToMinimizeStalling = false
+        }
         tableView.register(nib, forCellReuseIdentifier: "cell")
         trackPlayerView.isHidden = true
         loadJSON()
         addBlurToPlayer()
-        
     }
     
     func loadJSON(){
@@ -51,26 +52,26 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             let jsonResult = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String:AnyObject]
             let items = jsonResult?["tracks"] as! NSArray
             for k in 0..<sectionHeaders.count{
-            let otk = Tracks()
-            otk.headerTitle = sectionHeaders[k]
+                let otk = Tracks()
+                otk.headerTitle = sectionHeaders[k]
                 
-            for i in items{
-                let data =  i as? [String:AnyObject]
-                let object =  TopTrack()
-                object.previewURL = data?["preview_url"] as? String
-                object.trackName = data?["name"] as? String
-                let artists = data?["artists"] as? NSArray
-                object.artistName = (artists?.firstObject as? [String:AnyObject])?["name"] as? String
-                let albums =  data?["album"] as? [String:AnyObject]
-                let artWorkArray = albums?["images"] as! NSArray
-                let trackArtWork = artWorkArray.firstObject as! NSDictionary
-                object.artWork =  trackArtWork.value(forKey: "url") as? String
-                self.topTrack.append(object)
-                
-            }
-            otk.tracks =  self.topTrack
-            self.tracks.append(otk)
-            self.topTrack.removeAll()
+                for i in items{
+                    let data =  i as? [String:AnyObject]
+                    let object =  TopTrack()
+                    object.previewURL = data?["preview_url"] as? String
+                    object.trackName = data?["name"] as? String
+                    let artists = data?["artists"] as? NSArray
+                    object.artistName = (artists?.firstObject as? [String:AnyObject])?["name"] as? String
+                    let albums =  data?["album"] as? [String:AnyObject]
+                    let artWorkArray = albums?["images"] as! NSArray
+                    let trackArtWork = artWorkArray.firstObject as! NSDictionary
+                    object.artWork =  trackArtWork.value(forKey: "url") as? String
+                    self.topTrack.append(object)
+                    
+                }
+                otk.tracks =  self.topTrack
+                self.tracks.append(otk)
+                self.topTrack.removeAll()
             }
             
             self.tableView.reloadData()
@@ -154,14 +155,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         tableView.contentInset =  UIEdgeInsets(top: 0, left: 0, bottom: playerBlur.frame.height, right: 0)
         trackPlayerView.isHidden = false
         let musicURL = URL(string:track.previewURL!)
-    /*    do{
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-            try AVAudioSession.sharedInstance().setActive(true)
-            
-        }
-        catch{
-            print(error.localizedDescription)
-        }*/
+        /*    do{
+         try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+         try AVAudioSession.sharedInstance().setActive(true)
+         
+         }
+         catch{
+         print(error.localizedDescription)
+         }*/
         
         self.audioPlayer =  AVPlayer(url: musicURL!)
         self.audioPlayer?.play()
@@ -174,12 +175,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     @objc func updateProgressBar(){
         
-            let t1 =  self.audioPlayer?.currentTime()
-            let t2 =  self.audioPlayer?.currentItem?.asset.duration
-            
-            let current = CMTimeGetSeconds(t1!)
-            let total =  CMTimeGetSeconds(t2!)
-            
+        let t1 =  self.audioPlayer?.currentTime()
+        let t2 =  self.audioPlayer?.currentItem?.asset.duration
+        
+        let current = CMTimeGetSeconds(t1!)
+        let total =  CMTimeGetSeconds(t2!)
+        
         if Int(current) != Int(total){
             
             let min = Int(current) / 60
@@ -211,7 +212,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             playPauseButton.setImage(UIImage(named:"play"), for: .normal)
         }
         
-    
+        
     }
     
     
@@ -219,7 +220,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         super.didReceiveMemoryWarning()
         
     }
-
+    
 }
 
- let redColor = UIColor(red: 251/255, green: 34/255, blue: 68/255, alpha: 1.0)
+let redColor = UIColor(red: 251/255, green: 34/255, blue: 68/255, alpha: 1.0)
+
